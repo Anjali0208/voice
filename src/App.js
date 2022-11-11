@@ -9,6 +9,8 @@ mic.continuous = true
 mic.interimResults = true
 mic.lang = 'en-US'
 
+
+
 function App() {
   const [isListening, setIsListening] = useState(false)
   const [note, setNote] = useState(null)
@@ -55,6 +57,8 @@ function App() {
   const getBotResponse = () => {
 
   }
+  
+
   return (
     <>
       <h1>Voice Notes</h1>
