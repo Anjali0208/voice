@@ -54,14 +54,19 @@ function App() {
     setSavedNotes([...savedNotes, note])
     setNote('')
   }
-  const getBotResponse = () => {
+  // const getBotResponse = () => {
 
-  }
-  
+  // }
+
 
   return (
-    <>
-      <h1>Voice Notes</h1>
+
+    <div className='app' style={{
+      backgroundSize: "cover",
+      backgroundImage: `url(https://images.unsplash.com/photo-1631427962232-803d4f30c64f?ixlib=rb-4.0.3&dl=pradamas-gifarry-889Qh5HJj4I-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb)`,
+      backgroundPosition: "center center"
+    }}>
+      <h1 className='voice'>Voice Notes</h1>
       <div className="container">
         <div className="box">
           <h2>Current Note</h2>
@@ -81,7 +86,8 @@ function App() {
           ))}
         </div>
       </div>
-    </>
+    </div>
+
   )
 }
 
