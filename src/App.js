@@ -5,11 +5,13 @@ const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition
 const mic = new SpeechRecognition()
 
-mic.continuous = true
-mic.interimResults = true
-mic.lang = 'en-US'
+mic.continuous = true           //lets the device listen for a single word 
+mic.interimResults = true       //the user will only get their results once they are done speaking
+mic.lang = 'en-US'              //ets the language property to English 
 
 function App() {
+
+  // useState Hook
   const [isListening, setIsListening] = useState(false)
   const [note, setNote] = useState(null)
   const [savedNotes, setSavedNotes] = useState([])
@@ -20,7 +22,7 @@ function App() {
 
   const handleListen = () => {
     if (isListening) {
-      mic.start()
+      mic.start()             // to start the speech recognition
       mic.onend = () => {
         console.log('continue..')
         mic.start()
@@ -45,6 +47,8 @@ function App() {
       mic.onerror = event => {
         console.log(event.error)
       }
+      // const word = event.results[0][0].transcript
+      // setNote(word)
     }
   }
 
@@ -59,32 +63,32 @@ function App() {
 
   return (
     <>
-      <header className='app' style={{
+      <div className='app' style={{
         backgroundSize: "cover",
         backgroundImage: `url("https://images.unsplash.com/photo-1530811761207-8d9d22f0a141?ixlib=rb-4.0.3&dl=jason-leung-mZNRsYE9Qi4-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb")`,
         backgroundPosition: "center center"
       }}>
-        <h1>Voice Notes</h1>
-        <div className="container">
+        <h1 className='voice'>Voice Notes</h1>
+        <div className="">
           <div className="box">
             <h2>Current Note</h2>
-            {isListening ? <span>🎙️</span> : <span>🛑🎙️</span>}
-            <button onClick={handleSaveNote} disabled={!note}>
-              Save Note
-            </button>
+            {isListening ? <span>🎙️</span> : <span>🛑 </span>}
             <button onClick={() => setIsListening(prevState => !prevState)}>
               Start/Stop
             </button>
+            <button onClick={handleSaveNote} disabled={!note}>
+              Save Note
+            </button>
             <p>{note}</p>
           </div>
-          <div className="">
+          <div className="box">
             <h2>Notes</h2>
             {savedNotes.map(n => (
               <p key={n}>{n}</p>
             ))}
           </div>
         </div>
-      </header>
+      </div>
     </>
   )
 }
