@@ -9,8 +9,6 @@ mic.continuous = true
 mic.interimResults = true
 mic.lang = 'en-US'
 
-
-
 function App() {
   const [isListening, setIsListening] = useState(false)
   const [note, setNote] = useState(null)
@@ -54,40 +52,40 @@ function App() {
     setSavedNotes([...savedNotes, note])
     setNote('')
   }
-  // const getBotResponse = () => {
 
+  // const getBotResponse = () => {
   // }
 
 
   return (
-
-    <div className='app' style={{
-      backgroundSize: "cover",
-      backgroundImage: `url(https://images.unsplash.com/photo-1631427962232-803d4f30c64f?ixlib=rb-4.0.3&dl=pradamas-gifarry-889Qh5HJj4I-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb)`,
-      backgroundPosition: "center center"
-    }}>
-      <h1 className='voice'>Voice Notes</h1>
-      <div className="container">
-        <div className="box">
-          <h2>Current Note</h2>
-          {isListening ? <span>🎙️</span> : <span>🛑🎙️</span>}
-          <button onClick={handleSaveNote} disabled={!note}>
-            Save Note
-          </button>
-          <button onClick={() => setIsListening(prevState => !prevState)}>
-            Start/Stop
-          </button>
-          <p>{note}</p>
+    <>
+      <header className='app' style={{
+        backgroundSize: "cover",
+        backgroundImage: `url("https://images.unsplash.com/photo-1530811761207-8d9d22f0a141?ixlib=rb-4.0.3&dl=jason-leung-mZNRsYE9Qi4-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb")`,
+        backgroundPosition: "center center"
+      }}>
+        <h1>Voice Notes</h1>
+        <div className="container">
+          <div className="box">
+            <h2>Current Note</h2>
+            {isListening ? <span>🎙️</span> : <span>🛑🎙️</span>}
+            <button onClick={handleSaveNote} disabled={!note}>
+              Save Note
+            </button>
+            <button onClick={() => setIsListening(prevState => !prevState)}>
+              Start/Stop
+            </button>
+            <p>{note}</p>
+          </div>
+          <div className="">
+            <h2>Notes</h2>
+            {savedNotes.map(n => (
+              <p key={n}>{n}</p>
+            ))}
+          </div>
         </div>
-        <div className="box">
-          <h2>Notes</h2>
-          {savedNotes.map(n => (
-            <p key={n}>{n}</p>
-          ))}
-        </div>
-      </div>
-    </div>
-
+      </header>
+    </>
   )
 }
 
