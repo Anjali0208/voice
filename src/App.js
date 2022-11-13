@@ -63,14 +63,17 @@ function App() {
 
   return (
     <>
-      <div className='app' style={{
-        backgroundSize: "cover",
-        backgroundImage: `url("https://images.unsplash.com/photo-1530811761207-8d9d22f0a141?ixlib=rb-4.0.3&dl=jason-leung-mZNRsYE9Qi4-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb")`,
-        backgroundPosition: "center center"
-      }}>
-        <h1 className='voice'>Voice Notes</h1>
-        <div className="">
-          <div className="box">
+      <div className='app'
+        style={{
+          backgroundSize: "cover",
+          backgroundImage: `url("https://images.unsplash.com/photo-1530811761207-8d9d22f0a141?ixlib=rb-4.0.3&dl=jason-leung-mZNRsYE9Qi4-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb")`,
+          backgroundPosition: "center center"
+        }}
+      >
+
+        <div className="box">
+          <h1>Voice Messages</h1>
+          <div className="note">
             <h2>Current Note</h2>
             {isListening ? <span>🎙️</span> : <span>🛑 </span>}
             <button onClick={() => setIsListening(prevState => !prevState)}>
@@ -81,7 +84,7 @@ function App() {
             </button>
             <p>{note}</p>
           </div>
-          <div className="box">
+          <div className="note">
             <h2>Notes</h2>
             {savedNotes.map(n => (
               <p key={n}>{n}</p>

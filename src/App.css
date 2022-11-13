@@ -1,4 +1,5 @@
 .app{
+  display: flex;
   bottom: 2;
   padding: 0;
   height: 800px; 
@@ -6,19 +7,50 @@
   justify-content: center;
   /* align-items: center; */
   text-align: center;
-  background-repeat: no-repeat
+  background-color: white;
+  background-repeat: no-repeat;
+  
 }
 
-.box {
+.box{
+  /* background-color: lightgrey;     will change */
+  /* border-image: url("https://images.unsplash.com/photo-1530811761207-8d9d22f0a141?ixlib=rb-4.0.3&dl=jason-leung-mZNRsYE9Qi4-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb"); */
+  width: 300px;
+  border: 15px solid rgb(91, 38, 38);
+  border-radius: 20px;
+  padding: 50px;
+  margin: 50px;
+  height: 500px;
+}
+
+.box > h1 {
+   
+}
+.note {
   text-align: center;
   justify-content: center;
   align-items: center;
   color: red;
   
 }
-.voice{
-  padding-top: 20px;
-  text-align: center;
-  color: white;
-}
 
+.note >h2 { 
+  background: #e0efe3;
+  border-radius: 30px;
+
+}
+.voice{
+  /* padding-top: 20px; */
+  text-align: center;
+  font-size: 18px;
+  color: black;
+  margin-bottom: 50px;
+  /* outline: 1px solid brown;
+  outline-offset: 15px; */
+  position: relative;
+  height: 70px;
+  width: 300px;
+  background: #e0efe3;
+  border-radius: 30px;
+  
+}
